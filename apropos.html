@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - CineMMI</title>
+    <link rel="stylesheet" href="css/apropos.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header class="navbar">
+      <div><a href="index.html" class="logo">CINEMMI</a></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#map-section">Trouver un cinéma</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+
+        <main>
+            <h1 style="text-align: center; margin-bottom: 40px;">À PROPOS DE CINEMMI</h1>
+            <section class="intro">
+                <h2>À propos de l'application</h2>
+                <p>
+                    Bienvenue sur <strong>CineMMI</strong>, votre application interactive 
+                    pour retrouver facilement tous les cinémas autour de vous ! 
+                    Grâce à une carte dynamique, vous pouvez :
+                </p>
+                <ul>
+                    <li>Visualiser tous les cinémas présents sur la carte</li>
+                    <li>Rechercher un cinéma spécifique par nom ou localisation</li>
+                    <li>Consulter rapidement les informations essentielles sur chaque cinéma</li>
+                </ul>
+            </section>
+
+            <section class="technos">
+                <h2>Technologies utilisées</h2>
+                <p>
+                    Cette application a été développée en <strong>JavaScript</strong>, 
+                    en utilisant les données de cinémas au format JSON (source : <a href="https://data.iledefrance.fr/explore/dataset/les_salles_de_cinemas_en_ile-de-france/table/" target="_blank" class="link-source">Data Île-de-France</a>), et intégrée 
+                    avec la bibliothèque <strong>Leaflet</strong> pour créer une carte 
+                    interactive et intuitive. Les données sont chargées via l'API fetch, 
+                    et un indicateur informe l'utilisateur pendant le chargement pour 
+                    une expérience fluide.
+                </p>
+                <p>
+                    L'objectif de ce projet est d'apprendre à manipuler des données 
+                    interactives tout en respectant :
+                </p>
+                <ul>
+                    <li>Les bonnes pratiques de git pour la gestion de version</li>
+                    <li>Les règles d'accessibilité (contrastes, taille de texte, navigation simple)</li>
+                    
+                </ul>
+            </section>
+
+            <section class="team">
+                <h2>Membres du groupe</h2>
+                <div class="members">
+                    <div class="member">BERNOS Alicya</div>
+                    <div class="member">ALI Alice</div>
+                    <div class="member">BOUTWIL Salma</div>
+                    <div class="member">BOUKHRIS Halima</div>
+                </div>
+            </section>
+
+            <section class="infos">
+                <h2>Informations supplémentaires</h2>
+                <p><strong>Université / IUT :</strong> IUT de Cergy-Pontoise - Site de Sarcelles</p>
+                <p><strong>Année universitaire :</strong> 2025-2026</p>
+                <p><strong>Promotion :</strong> BUT MMI</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CINEMMI</h3>
+                <p>Votre guide pour trouver les meilleurs cinémas en Île-de-France.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#map-section">Trouver un cinéma</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email : <a href="mailto:contact@cinemmi.fr" title="Email fictif - Projet étudiant">contact@cinemmi.fr</a></p>
+                <p>Téléphone : <a href="tel:+33123456789" title="Numéro fictif - Projet étudiant">01 23 45 67 89</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-logos">
+            <img src="img/CYIUT_Blanc.svg" alt="CY Cergy Paris Université - Couleur" class="footer-logo">
+            <img src="img/CYCergyParisUniversite_hachures_Blanc.svg" alt="CY Cergy Paris Université - Blanc" class="footer-logo">
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025-2026 CINEMMI. Tous droits réservés.</p>
+            <p><a href="https://www.butmmi.fr" target="_blank">BUT MMI - 2<sup>e</sup> année</a></p>
+        </div>
+    </footer>
+</body>
+</html>

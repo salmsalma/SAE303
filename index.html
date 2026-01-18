@@ -3,7 +3,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Carte avec Leaflet</title>
+     <title>Accueil - CineMMI</title>
 
 
      <!-- feuille de style Leaflet pour bien afficher la carte-->
@@ -14,50 +14,109 @@
      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
      
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="css/header.css">
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/footer.css">
+    
+
 </head>
 
 <body>
 
+    <header class="navbar">
+      <div><a href="index.html" class="logo">CINEMMI</a></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="#map-section">Trouver un cinéma</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+        <section class="txt-intro">
+            <h1>BIENVENUE SUR CINEMMI</h1>
+            <p>Vous cherchez un cinéma en Île-de-France ? Vous êtes au bon endroit, les meilleurs cinémas à votre portée.</p>
+            <a href="#map-section" class="btn">Trouver un cinéma</a>
+        </section>
+        <div class="logos-slider">
+          <div class="logos-track" id="marquee-track"> <img src="img/logo-mk2.webp" alt="mk2">
+            <img src="img/logo-cgr.png" alt="cgr">
+            <img src="img/logo-pathe.png" alt="pathe">
+             <img src="img/logo-ugc.png" alt="ugc">
+              <img src="img/logo-megarama.png" alt="megarama">
+          </div>
+        </div>
+
+        <section class="map" id="map-section">
+          <h2>Trouver un cinéma en Île-de-France</h2>
+          <p>En un clic, trouvez le cinéma le plus près de chez vous ! </p>
+
     <div id="loading">Chargement des cinémas...</div>
 
     <div id="search-container">
+        <label for="search-input" class="visually-hidden">Rechercher une ville ou un cinéma</label>
         <input type="text" id="search-input" placeholder="Rechercher une ville ou un cinéma...">
         <button id="search-btn">Rechercher</button>
+        <button id="reset-btn">Réinitialiser</button>
     </div>
 
     <div id="results-info"></div>
-    <div id="map"></div>
     
-    <div class="filter-bar">
-        <button id="btn-entrees" class="active">Top 10 Entrées</button>
-        <button id="btn-capacite">Top 10 Capacité</button>
-    </div>
+    <div id="map"></div>
+    <!-- Image des sièges ajoutée juste sous la carte -->
+    <img src="img/sieges-cine2.png" class="cinema-seats" alt="Sièges de cinéma">
+    </section>
+    
+    </main>
 
-    <div id="chart-entrees" class="chart-container">
-        <canvas id="myChart"></canvas>
-    </div>
-
-    <div id="chart-capacite" class="chart-container" style="display: none;">
-        <canvas id="myChart2"></canvas>
-    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CINEMMI</h3>
+                <p>Votre guide pour trouver les meilleurs cinémas en Île-de-France.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="#map-section">Trouver un cinéma</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email : <a href="mailto:contact@cinemmi.fr" title="Email fictif - Projet étudiant">contact@cinemmi.fr</a></p>
+                <p>Téléphone : <a href="tel:+33123456789" title="Numéro fictif - Projet étudiant">01 23 45 67 89</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-logos">
+            <img src="img/CYIUT_Blanc.svg" alt="CY Cergy Paris Université - Couleur" class="footer-logo">
+            <img src="img/CYCergyParisUniversite_hachures_Blanc.svg" alt="CY Cergy Paris Université - Blanc" class="footer-logo">
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025-2026 CINEMMI. Tous droits réservés.</p>
+            <p><a href="https://www.butmmi.fr" target="_blank">BUT MMI - 2<sup>e</sup> année</a></p>
+        </div>
+    </footer>
 
      
      <!-- Bibliothèque JS Leaflet-->
      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""> </script>
-     
-     <!-- Bibliothèque Chart.js -->
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
      
 
      <script>
           //L.map('map') : crée une carte dans la div id="map"
           //setView([latitude, longitude], zoom) : centre la carte et définit le niveau de zoom
-         //var map = L.map('map').setView([48.8499198, 2.6370411], 10);
-
+          
           var map = L.map('map').setView([48.8499198, 2.6370411], 9);
 
 
@@ -66,35 +125,18 @@
           L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                
                maxZoom: 19, //zoom maximum autorisé
-               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+               attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> | Données : <a href="https://data.iledefrance.fr/explore/dataset/les_salles_de_cinemas_en_ile-de-france/table/" target="_blank">Data Île-de-France</a>'
      
           }).addTo(map);
           
-          //var marker = L.marker([51.5, -0.09]).addTo(map); //Ajout d'un marqueur à une position donnée 
-
-          //marker.bindPopup("<b>Hello world!</b><br>I am a popup.");//Ajout d'un popup avec un texte quand on clique sur le marqueur
-          
-
-          //var popup = L.popup();
-
-          //fonction appelée qd on clique sur la carte (les coordonnées de l'endroit où on a cliqué s'affichent)
-          //function onMapClick(e) {
-
-               // e.latlng = coordonnées du clic
-               //popup
-                   // .setLatLng(e.latlng)
-                 //  .setContent("You clicked the map at " + e.latlng.toString())
-                   // .openOn(map);
-         // }
-
-          //map.on('click', onMapClick);
 
      </script>
 
      <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-     <script src="cinemas.js"></script>
+     <script src="js/cinemas.js"></script>
 
+     <script src="js/index.js"></script>
 
      
 </body>

@@ -1,0 +1,365 @@
+/* --- Styles généraux --- */
+body {
+    background-color: #121212; 
+    color: #ffffff;           
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* --- Slider de logos --- */
+.logos-slider {
+    overflow: hidden;
+    background: #606060;
+    width: 100%;
+    white-space: nowrap;
+    padding: 20px 0;
+}
+
+.logos-track {
+    display: flex;
+    width: max-content; 
+    gap: 140px;
+    column-gap: 140px; 
+    align-items: center;
+    will-change: transform;
+}
+
+.logos-track img {
+    height: 100px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: 0.3s;
+    flex-shrink: 0;
+    cursor: pointer; /* Pour indiquer que le logo est cliquable */
+}
+
+
+.logos-track img[alt="megarama"] { /* Réduction du logo megarama trop grand par rapport aux autres */
+    height: 70px; 
+}
+
+.logos-track img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.slider-container {
+    width: 800px; 
+    margin: auto;
+    overflow: hidden;
+}
+
+/* --- Section d'introduction --- */
+.txt-intro {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.txt-intro h1 {
+    font-size: 3.5rem; 
+    margin-bottom: 15px;
+}
+
+.navbar {
+    position: sticky;  
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);   
+    top: 0;           
+    z-index: 2000; /* Permet de laisser la barre au premier plan quand on scroll car la carte passait au dessus*/
+}
+
+.logo {
+    text-decoration: none;
+}
+
+/* --- Composants (Boutons, Inputs) --- */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #B00710;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #B00710;
+}
+
+/* --- Section Carte & Recherche --- */
+#map { 
+    height: 450px; /*FAIRE ATTENTION car sans "height", la carte ne s'affiche pas */
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+     }
+
+#map-section {
+    text-align: center;
+    padding: 20px 0;
+    scroll-margin-top: 70px; 
+}
+
+.cinema-seats {
+    display: block;
+    width: 100%;          
+    margin: -395px auto 0; /* Permet de remonter l'image */
+    position: relative;
+    z-index: 10;          
+    pointer-events: none; 
+}
+
+#loading {
+         position: absolute;
+         top: 10px;
+         left: 50%;
+         transform: translateX(-50%);
+         background: white;
+         padding: 8px 15px;
+         border-radius: 5px;
+         z-index: 1000; 
+         display: none; 
+         box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+ #search-container {
+     width: 60%;
+     margin: 20px auto;
+     display: flex;
+     gap: 5px;
+     justify-content: center;
+ }
+
+ #search-input {
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     width: 250px;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+ }
+
+ 
+ #search-input::placeholder {
+     color: #535A5F; /* Gris foncé au lieu du gris clair par défaut */
+     opacity: 1;  
+ }
+
+ #search-btn {
+     padding: 10px 15px;
+     border-radius: 5px;
+     border :none;
+     background-color: #B00710;
+     color: white;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+     font-weight: bold;
+ }
+
+ #search-btn:hover {
+     background-color: #ffffff;
+     color:#B00710;
+ }
+
+ #reset-btn {
+     padding: 10px 15px;
+     border-radius: 5px;
+     border: none;
+     background-color: #535A5F;
+     color: white;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+     font-weight: bold;
+ }
+
+ #reset-btn:hover {
+     background-color: #ffffff;
+     color : #535A5F; 
+ }
+
+ #results-info {
+     width: 60%;
+     margin: 20px auto;
+     font-family: Arial, sans-serif;
+ }
+ 
+ .results-list {
+     max-height: 300px;
+     overflow-y: auto;
+ }
+ 
+/* Personnalisation de la barre de défilement pour qu'elle soit bien visible */
+
+ .results-list::-webkit-scrollbar { 
+     width: 10px;
+ }
+
+ .results-list::-webkit-scrollbar-track {
+     background: #f1f1f1;
+     border-radius: 5px;
+ }
+
+ .results-list::-webkit-scrollbar-thumb {
+     background: #B00710; 
+     border-radius: 5px;
+ }
+
+ /* Style du petit message d'aide */
+ .scroll-hint {
+     font-size: 0.9rem;
+     color: #969696;
+     text-align: center;
+     margin-bottom: 10px;
+     font-style: italic;
+ }
+
+ .cinema-item {
+     border: 1px solid #ddd;
+     padding: 15px;
+     margin-bottom: 10px;
+     border-radius: 5px;
+     background-color: #f9f9f9;
+     color: #000; 
+ }
+
+ .chart-container {
+     width: 50%;
+     max-width: 600px; 
+     margin: 40px auto;
+     background: white;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ }
+
+ .filter-bar {
+     text-align: center;
+     margin: 20px auto;
+ }
+
+ .filter-bar button {
+     padding: 10px 20px;
+     margin: 0 10px;
+     background-color: white;
+     color: #B00710;
+     border-radius: 5px;
+     cursor: pointer;
+     font-weight: bold;
+ }
+
+ .filter-bar button.active, .filter-bar button:hover {
+     background-color: #B00710;
+     color: white;
+ }
+
+
+ .marker-cluster div {
+     color: #000;
+ }
+
+ /* Style du bouton itinéraire dans la popup */
+ .popup-itineraire {
+     display: inline-block;
+     margin-top: 8px;
+     color: #B00710;
+     text-decoration: none;
+     font-weight: bold;
+     border: 1px solid #B00710;
+     padding: 5px 10px;
+     border-radius: 4px;
+     transition: all 0.3s;
+     font-size: 0.9rem;
+ }
+
+ .popup-itineraire:hover {
+     background-color: #B00710;
+     color: white;
+ }
+
+ /* Titre de la popup (Nom du cinéma) */
+ .popup-titre {
+     color: #B00710;
+     display: block;
+     margin-bottom: 8px;
+     font-size: 1rem;
+     text-transform: uppercase;
+ }
+
+
+ /* Message d'erreur de recherche */
+
+ .error-message {
+     color: #ff6b6b;  /* Rouge plus clair pour être lisible sur fond noir */
+     text-align: center;
+     font-weight: bold;
+ }
+
+ /* Utile pour l'accessibilité */
+ .visually-hidden {
+     position: absolute;
+     width: 1px;
+     height: 1px;
+     padding: 0;
+     margin: -1px;
+     overflow: hidden;
+     clip: rect(0, 0, 0, 0);
+     white-space: nowrap;
+     border: 0;
+ }
+
+ /* Style accessible pour les noms de cinémas cliquables */
+ .cinema-name-btn {
+     background: none;
+     border: none;
+     padding: 0;
+     font: inherit;
+     cursor: pointer;
+     color: #B00710;
+     font-weight: bold;
+     text-align: left;
+ }
+
+ .cinema-name-btn:hover, .cinema-name-btn:focus {
+     text-decoration: underline;
+     outline: 2px solid #B00710; /* Indicateur de focus pour la navigation clavier */
+ }
+
+ /* --- Responsive Design --- */
+ @media (max-width: 900px) {
+    #map, 
+    #search-container, 
+    #results-info,
+    .chart-container {
+        width: 90%;
+    }
+
+    .txt-intro h1 {
+        font-size: 2.5rem;
+    }
+ }
+
+ @media (max-width: 600px) {
+    #search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #search-input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #search-btn, #reset-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Ajustement de l'image décorative sous la carte pour éviter qu'elle ne remonte trop */
+    .cinema-seats {
+        margin-top: -15vw; 
+    }
+ }

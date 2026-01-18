@@ -1,0 +1,115 @@
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Typographie --- */
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-bottom: 2px solid #8E1B1B;
+    padding-bottom: 8px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+strong {
+    color: #ffffff;
+}
+
+/* --- Sections & Composants --- */
+section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #111111;
+    border-left: 5px solid #B00710;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.link-source {
+    color: #F8686F;
+    text-decoration: none;
+}
+
+.link-source:hover {
+    text-decoration: underline;
+}
+
+.container ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.container li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    color: #cccccc;
+}
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.member {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border: 2px solid #B00710;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    width: 45%; 
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    section {
+        padding: 15px;
+    }
+    
+    .member {
+        width: 100%; /* chaque membre prend toute la largeur sur mobile */
+    }
+}
