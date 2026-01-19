@@ -10,6 +10,8 @@ Présentation du projet
 CINEMMI est une application interactive développée dans le cadre de la SAÉ 303 - Concevoir des visualisations de données pour le web.
 Cette application permet de visualiser et d'explorer les cinémas en Île-de-France via une carte interactive. Elle aide les utilisateurs à trouver un cinéma près de chez eux.
 
+Lien vers l'application : http://halima.alwaysdata.net/sae303/index.html
+
 Contexte
 
 Projet réalisé dans le cadre de la SAÉ 303 (axe développement). L'application utilise une carte interactive (Leaflet + OpenStreetMap) pour visualiser géographiquement les cinémas de la région Île-de-France. 
@@ -29,16 +31,16 @@ Technologies utilisées
 - OpenStreetMap (données cartographiques)
 - Leaflet.markercluster (regroupement des marqueurs)
 
-Membres du groupe
-Alice Ali
-Alicya Bernos
-Halima Boukhris 
-Salma Boutwil 
+Membres du groupe :
+- Alice Ali
+- Alicya Bernos
+- Halima Boukhris 
+- Salma Boutwil 
 
 Promotion : BUT MMI - 2e année 
 
 Sources des données
 
-Données des cinémas : Data en Île-de-France - Les salles de cinémas en Île-de-France
+Données des cinémas : [Data en Île-de-France - Les salles de cinémas en Île-de-France](https://data.iledefrance.fr/explore/dataset/les_salles_de_cinemas_en_ile-de-france/table/)
 Cartographie : OpenStreetMap
 </p> 
